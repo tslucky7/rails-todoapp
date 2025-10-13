@@ -6,6 +6,8 @@ gem "rails", "~> 8.0.3"
 gem "propshaft"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "sprockets-rails"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
@@ -20,6 +22,14 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+gem "annotate"
+gem "aws-sdk-s3", require: false
+gem "better_errors"
+gem "binding_of_caller"
+gem "devise"
+gem "faker"
+gem "hamlit"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
@@ -30,6 +40,8 @@ gem "solid_cable"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+
+gem "sassc-rails"
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
@@ -43,6 +55,9 @@ gem "thruster", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem "dotenv-rails"
+  gem "pry-byebug"
+  gem "rubocop-rails"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
@@ -53,6 +68,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "erb2haml"
   gem "web-console"
 end
 
@@ -61,3 +77,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "importmap-rails"
