@@ -1,0 +1,16 @@
+@import './variables';
+
+.actions {
+  margin-top: auto;
+}
+
+.submit-btn {
+  width: 100%;
+  display: inline-block;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 4px;
+  background-color: $submit-bg-color;
+  color: $submit-text-color;
+}

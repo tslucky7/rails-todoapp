@@ -1,0 +1,14 @@
+.field {
+  margin-top: 32px;
+  input {
+    width: 100%;
+    padding: 12.5px;
+    border-radius: 10px;
+    background-color: #F4F4F4;
+    border: none;
+  }
+
+  &--password-confirmation {
+    margin-top: 16px;
+  }
+}

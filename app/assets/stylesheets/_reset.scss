@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: unset;
+  font-size: 18px;
+}
+
+h2 {
+  margin: unset;
+  font-size: 26px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+input {
+  &[type='submit'] {
+    border: none;
+  }
+}
