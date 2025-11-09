@@ -1,0 +1,14 @@
+@use './variables' as *;
+
+.container {
+  min-height: calc(100svh - 60px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 33px $inner-spacing;
+}
+
+.content-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

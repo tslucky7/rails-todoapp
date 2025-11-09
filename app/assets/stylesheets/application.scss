@@ -1,11 +1,6 @@
-@import "header";
-
-body {
-  margin: unset;
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-  color: #000;
-}
+@import 'reset';
+@import 'variables';
+@import './common';
+@import './header';
+@import './form';
+@import './btn';
