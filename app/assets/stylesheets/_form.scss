@@ -1,11 +1,17 @@
 .field {
   margin-top: 32px;
-  input {
+  input,
+  textarea {
     width: 100%;
     padding: 12.5px;
     border-radius: 10px;
     background-color: #F4F4F4;
     border: none;
+  }
+
+  textarea {
+    height: 203px;
+    max-height: 100%;
   }
 
   &--password-confirmation {
