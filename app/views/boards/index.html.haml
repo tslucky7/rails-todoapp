@@ -1,0 +1,12 @@
+.container
+  %h2 All Boards
+  .content-inner.boards-list
+    - @boards.each do |board|
+      .board-item
+        %h3= board.name
+        = image_tag 'combined-shape.svg', class: 'icon--combined-shape'
+        %p= board.description
+        = image_tag 'Users2.png', class: 'user-icon'
+      .add-new-board
+        = link_to new_board_path, class: "add-new-board__link" do
+          %span.add-new-board__link-text + Add new board
