@@ -1,14 +1,1 @@
-.container
-  %h2 New Board
-  = form_with(model: @board, url: boards_path, method: :post, local: true) do |f|
-    .content-inner
-      .field
-        = f.label :name
-        %br/
-        = f.text_field :name
-      .field
-        = f.label :description
-        %br/
-        = f.text_area :description
-      .actions
-        = f.submit "Create Board", class: "submit-btn"
+= render 'form', board: @board, title: 'New Board', button_text: 'Create Board'

@@ -7,6 +7,7 @@
   &_logos {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &_pageTitle {
@@ -22,12 +23,29 @@
       display: block;
     }
   }
+
+  .user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
   &-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    font-size: 12px;
+    top: 100%;
+    right: -5px;
+    padding: 12px;
+    border-radius: 10px;
+    white-space: nowrap;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+
+    &__link {
+      display: block;
+    }
   }
 }

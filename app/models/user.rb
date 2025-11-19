@@ -5,5 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # ユーザーに複数のタスクが紐づけられる
-  has_many :boards
+  has_many :boards, dependent: :destroy
+
+  def has_written?(board)
+    boards.exists?(id: board.id)
+  end
 end
