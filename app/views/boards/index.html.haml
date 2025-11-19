@@ -3,10 +3,17 @@
   .content-inner.boards-list
     - @boards.each do |board|
       .board-item
-        %h3= board.name
-        = image_tag 'combined-shape.svg', class: 'icon--combined-shape'
-        %p= board.description
-        = image_tag 'Users2.png', class: 'user-icon'
-      .add-new-board
-        = link_to new_board_path, class: "add-new-board__link" do
-          %span.add-new-board__link-text + Add new board
+        .board-item__top
+          %h3.board-item__title= board.name
+          - if user_signed_in? && current_user.has_written?(board)
+            .dropdown
+              = image_tag 'combined-shape.svg', class: 'icon--combined-shape'
+              .dropdown-content
+                = link_to 'edit', edit_board_path(board), class: 'dropdown-content__link'
+                = link_to 'delete', board_path(board), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'dropdown-content__link'
+        %p.board-item__description= board.description
+        .board-item__bottom
+          = image_tag 'Users2.png', class: 'user-icon'
+    .add-new-board
+      = link_to new_board_path, class: "add-new-board__link" do
+        %span.add-new-board__link-text + Add new board

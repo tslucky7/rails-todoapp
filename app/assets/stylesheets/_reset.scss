@@ -40,6 +40,12 @@ p {
   margin: unset;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
 input {
   &[type='submit'] {
     border: none;
