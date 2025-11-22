@@ -15,5 +15,9 @@
         .board-item__bottom
           = image_tag 'Users2.png', class: 'user-icon'
     .add-new-board
-      = link_to new_board_path, class: "add-new-board__link" do
-        %span.add-new-board__link-text + Add new board
+      - if user_signed_in?
+        = link_to new_board_path, class: "add-new-board__link" do
+          %span.add-new-board__link-text + Add new board
+      - else
+        = link_to new_user_session_path, class: "add-new-board__link" do
+          %span.add-new-board__link-text + Add new board
