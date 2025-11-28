@@ -14,6 +14,10 @@
     max-height: 100%;
   }
 
+  input[type="file"] {
+    background-color: unset;
+  }
+
   &--password-confirmation {
     margin-top: 16px;
   }

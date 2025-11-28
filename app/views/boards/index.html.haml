@@ -4,7 +4,8 @@
     - @boards.each do |board|
       .board-item
         .board-item__top
-          %h3.board-item__title= board.name
+          %h3.board-item__title
+            = link_to board.name, board_tasks_path(board)
           - if user_signed_in? && current_user.has_written?(board)
             .dropdown
               = image_tag 'combined-shape.svg', class: 'icon--combined-shape'

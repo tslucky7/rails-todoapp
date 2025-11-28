@@ -1,3 +1,10 @@
-%p Tasks#index
-
-= link_to "New Board", new_board_path
+.container
+  %h2 Brackets
+  - @tasks.each do |task|
+    = link_to task.title, board_task_path(@board, task)
+    = task.description
+    = task.deadline
+    = task.image.attached? ? image_tag(task.image) : 'No image'
+    = link_to 'Edit', edit_board_task_path(@board, task)
+    = link_to 'Delete', board_task_path(@board, task), data: { turbo_method: :delete }
+  = link_to 'New Task', new_board_task_path(@board), class: 'btn btn-primary'
