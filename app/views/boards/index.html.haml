@@ -1,10 +1,10 @@
 .container
   %h2 All Boards
-  .content-inner.boards-list
+  .content-inner.cards-list
     - @boards.each do |board|
-      .board-item
-        .board-item__top
-          %h3.board-item__title
+      .card-item
+        .card-item__top
+          %h3.card-item__title
             = link_to board.name, board_tasks_path(board)
           - if user_signed_in? && current_user.has_written?(board)
             .dropdown
@@ -12,13 +12,13 @@
               .dropdown-content
                 = link_to 'edit', edit_board_path(board), class: 'dropdown-content__link'
                 = link_to 'delete', board_path(board), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'dropdown-content__link'
-        %p.board-item__description= board.description
-        .board-item__bottom
+        %p.card-item__description= board.description
+        .card-item__bottom
           = image_tag 'Users2.png', class: 'user-icon'
-    .add-new-board
+    .add-new-card
       - if user_signed_in?
-        = link_to new_board_path, class: "add-new-board__link" do
-          %span.add-new-board__link-text + Add new board
+        = link_to new_board_path, class: "add-new-card__link" do
+          %span.add-new-card__link-text + Add new board
       - else
-        = link_to new_user_session_path, class: "add-new-board__link" do
-          %span.add-new-board__link-text + Add new board
+        = link_to new_user_session_path, class: "add-new-card__link" do
+          %span.add-new-card__link-text + Add new board

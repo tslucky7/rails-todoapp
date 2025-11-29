@@ -1,10 +1,28 @@
 .container
   %h2 Brackets
-  - @tasks.each do |task|
-    = link_to task.title, board_task_path(@board, task)
-    = task.description
-    = task.deadline
-    = task.image.attached? ? image_tag(task.image) : 'No image'
-    = link_to 'Edit', edit_board_task_path(@board, task)
-    = link_to 'Delete', board_task_path(@board, task), data: { turbo_method: :delete }
-  = link_to 'New Task', new_board_task_path(@board), class: 'btn btn-primary'
+  .content-inner.cards-list
+    - @tasks.each do |task|
+      = link_to board_task_path(@board, task), class: 'card-item' do
+        - if task.image.attached?
+          .card-item__image
+            = image_tag(task.image, class: 'card-item__image-img')
+        .card-item__top
+          %h3.card-item__title
+            = task.title
+        .card-item__description
+          = task.description
+        .card-item__bottom
+          -# TODO: Add user icons who added comments
+          = image_tag 'Users2.png', class: 'user-icon'
+          -# TODO: Add comments link
+          .card-item__comments
+            .card-item__comments-counts 0
+            .card-item__comments-icon
+              = image_tag 'message-square-outline.svg', class: 'card-item__comments-icon-img'
+    .add-new-card
+      - if user_signed_in?
+        = link_to new_board_task_path(@board), class: "add-new-card__link" do
+          %span.add-new-card__link-text + Add new task
+      - else
+        = link_to new_user_session_path, class: "add-new-card__link" do
+          %span.add-new-card__link-text + Add new task

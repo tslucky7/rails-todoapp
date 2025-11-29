@@ -1,12 +1,23 @@
-.boards-list {
+.cards-list {
   margin-top: 35px;
   gap: 26px;
 }
 
-.board-item {
+.card-item {
   padding: 32px 16px 20px;
   border-radius: 10px;
   background-color: #F4F4F4;
+
+  &__image {
+    overflow: hidden;
+    aspect-ratio: 322 / 170;
+    margin-bottom: 27px;
+    border-radius: 8px;
+
+    &-img {
+      object-fit: cover;
+    }
+  }
 
   &__top {
     display: flex;
@@ -19,6 +30,10 @@
     height: 24px;
   }
 
+  &__title {
+    font-weight: 800;
+  }
+
   &__description {
     margin-top: 6px;
     font-size: 14px;
@@ -27,6 +42,9 @@
 
   &__bottom {
     margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
     .user-icon {
       width: 30px;
@@ -34,12 +52,27 @@
     }
   }
 
+  &__comments {
+    display: flex;
+    align-items: flex-end;
+
+    &-counts {
+      font-size: 14px;
+      color: #bbbbbb;
+    }
+
+    &-icon {
+      &-img {
+        vertical-align: middle;
+      }
+    }
+  }
 }
 
-.add-new-board {
+.add-new-card {
   height: 160px;
   max-height: 100%;
-  border: 1px dashed #00000033;
+  border: 1px dashed #00000080;
   border-radius: 10px;
 
   &__link {
@@ -47,8 +80,5 @@
     place-items: center;
     width: 100%;
     height: 100%;
-
-    &-text {
-    }
   }
 }
