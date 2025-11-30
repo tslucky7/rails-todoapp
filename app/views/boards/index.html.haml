@@ -9,9 +9,11 @@
           - if user_signed_in? && current_user.has_written?(board)
             .dropdown
               = image_tag 'combined-shape.svg', class: 'icon--combined-shape'
-              .dropdown-content
-                = link_to 'edit', edit_board_path(board), class: 'dropdown-content__link'
-                = link_to 'delete', board_path(board), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'dropdown-content__link'
+              %ul.dropdown-content
+                %li.dropdown-content__item
+                  = link_to 'edit', edit_board_path(board), class: 'dropdown-content__link'
+                %li.dropdown-content__item
+                  = link_to 'delete', board_path(board), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'dropdown-content__link'
         %p.card-item__description= board.description
         .card-item__bottom
           = image_tag 'Users2.png', class: 'user-icon'
