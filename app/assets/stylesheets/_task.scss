@@ -1,0 +1,74 @@
+/*
+タスク共通コンポーネント
+*/
+.task-image {
+  overflow: hidden;
+  aspect-ratio: 322 / 170;
+  border-radius: 8px;
+
+  &__img {
+    object-fit: cover;
+  }
+}
+
+
+/*
+タスクの詳細
+app/views/tasks/show.html.haml
+*/
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.task-content {
+  &__image {
+    margin-bottom: 35px;
+  }
+
+  &__description {
+    margin-bottom: 35px;
+    padding: 20px 16px 26px;
+    background-color: $theme-bg-color-gray;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .task-comments {
+    margin-bottom: 32px;
+
+    &__heading {
+      margin-bottom: 25px;
+      font-size: 26px;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    &__content {
+      font-size: 14px;
+    }
+  }
+
+}
+
+.add-new-comment {
+  height: 57px;
+
+  &__link {
+    &-text {
+      font-size: 14px;
+    }
+  }
+}

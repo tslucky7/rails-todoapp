@@ -1,21 +1,19 @@
 class TasksController < ApplicationController
+  before_action :set_board, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
+
   def index
-    @board = Board.find(params[:board_id])
     @tasks = @board.tasks
   end
 
   def show
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
   end
 
   def new
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.new
   end
 
   def create
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.build(task_params)
     @task.user = current_user
     if @task.save
@@ -27,12 +25,10 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
   end
 
   def update
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
     if @task.update(task_params)
       redirect_to board_task_path(@board, @task), notice: "タスクを更新しました"
@@ -43,13 +39,16 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
     @task.destroy!
     redirect_to board_tasks_path(@board), status: :see_other, notice: "タスクを削除しました"
   end
 
   private
+
+  def set_board
+    @board = Board.find(params[:board_id])
+  end
 
   def task_params
     params.require(:task).permit(:title, :description, :deadline, :image)

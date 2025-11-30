@@ -15,10 +15,10 @@
         %p.card-item__description= board.description
         .card-item__bottom
           = image_tag 'Users2.png', class: 'user-icon'
-    .add-new-card
+    .add-new-entry
       - if user_signed_in?
-        = link_to new_board_path, class: "add-new-card__link" do
-          %span.add-new-card__link-text + Add new board
+        = link_to new_board_path, class: "add-new-entry__link" do
+          %span.add-new-entry__link-text + Add new board
       - else
-        = link_to new_user_session_path, class: "add-new-card__link" do
-          %span.add-new-card__link-text + Add new board
+        = link_to new_user_session_path, class: "add-new-entry__link" do
+          %span.add-new-entry__link-text + Add new board

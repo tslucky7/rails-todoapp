@@ -1,2 +1,30 @@
 .container
-  %h2 Card
+  .task-header
+    %h2= @task.title
+    - if user_signed_in? && current_user.has_written?(@board)
+      .dropdown
+        = image_tag 'combined-shape.svg', class: 'icon--combined-shape'
+        .dropdown-content
+          = link_to 'edit', edit_board_task_path(@board, @task), class: 'dropdown-content__link'
+          = link_to 'delete', board_task_path(@board, @task), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'dropdown-content__link'
+  .task-content
+    - if @task.image.attached?
+      .task-image.task-content__image
+        = image_tag @task.image, class: 'task-image__img'
+    .task-content__description
+      = @task.description
+    .task-comments
+      %h3.task-comments__heading Comment
+      .task-comments__list
+        .task-comments__item
+          .task-comments__user-icon
+            = image_tag 'User1.png', class: 'user-icon task-comments__user-icon-img'
+          %p.task-comments__content
+            Successful businesses know the importance of building and maintaining good working. Successful businesses know the importanc
+  .add-new-entry.add-new-comment
+    - if user_signed_in?
+      = link_to new_user_session_path, class: 'add-new-entry__link add-new-comment__link' do
+        %span.add-new-entry__link-text.add-new-comment__link-text + Add new comment
+    - else
+      = link_to new_user_session_path, class: 'add-new-entry__link add-new-comment__link' do
+        %span.add-new-entry__link-text.add-new-comment__link-text + Add new comment

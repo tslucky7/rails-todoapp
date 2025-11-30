@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 .cards-list {
   margin-top: 35px;
   gap: 26px;
@@ -6,17 +8,10 @@
 .card-item {
   padding: 32px 16px 20px;
   border-radius: 10px;
-  background-color: #F4F4F4;
+  background-color: $theme-bg-color-gray;
 
   &__image {
-    overflow: hidden;
-    aspect-ratio: 322 / 170;
     margin-bottom: 27px;
-    border-radius: 8px;
-
-    &-img {
-      object-fit: cover;
-    }
   }
 
   &__top {
@@ -66,19 +61,5 @@
         vertical-align: middle;
       }
     }
-  }
-}
-
-.add-new-card {
-  height: 160px;
-  max-height: 100%;
-  border: 1px dashed #00000080;
-  border-radius: 10px;
-
-  &__link {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 100%;
   }
 }
