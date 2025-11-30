@@ -4,9 +4,11 @@
     - if user_signed_in? && current_user.has_written?(@board)
       .dropdown
         = image_tag 'combined-shape.svg', class: 'icon--combined-shape'
-        .dropdown-content
-          = link_to 'edit', edit_board_task_path(@board, @task), class: 'dropdown-content__link'
-          = link_to 'delete', board_task_path(@board, @task), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'dropdown-content__link'
+        %ul.dropdown-content
+          %li.dropdown-content__item
+            = link_to 'edit', edit_board_task_path(@board, @task), class: 'dropdown-content__link'
+          %li.dropdown-content__item
+            = link_to 'delete', board_task_path(@board, @task), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'dropdown-content__link'
   .task-content
     - if @task.image.attached?
       .task-image.task-content__image
