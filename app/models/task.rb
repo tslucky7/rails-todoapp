@@ -6,4 +6,5 @@ class Task < ApplicationRecord
   validates :description, presence: true
   validates :deadline, presence: true
   validates :image, presence: true
+  has_many :comments
 end
