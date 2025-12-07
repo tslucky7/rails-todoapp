@@ -18,11 +18,15 @@
     .task-comments
       %h3.task-comments__heading Comment
       .task-comments__list
-        .task-comments__item
-          .task-comments__user-icon
-            = image_tag 'User1.png', class: 'user-icon task-comments__user-icon-img'
-          %p.task-comments__content
-            Successful businesses know the importance of building and maintaining good working. Successful businesses know the importanc
+        - @comments.each do |comment|
+          .task-comments__item
+            .task-comments__user-icon
+              - if comment.user.icon.attached?
+                = image_tag comment.user.icon, class: 'user-icon task-comments__user-icon-img'
+              - else
+                = image_tag 'default-avatar.png', class: 'user-icon task-comments__user-icon-img'
+            %p.task-comments__content
+              = comment.content
   .add-new-entry.add-new-comment
     - if user_signed_in?
       = link_to new_board_task_comment_path(@board, @task), class: 'add-new-entry__link add-new-comment__link' do

@@ -12,9 +12,10 @@
         .card-item__description
           = task.description
         .card-item__bottom
-          -# TODO: Add user icons who added comments
-          = image_tag 'Users2.png', class: 'user-icon'
-          -# TODO: Add comments link
+          - if task.user.icon.attached?
+            = image_tag task.user.icon, class: 'user-icon'
+          - else
+            = image_tag 'default-avatar.png', class: 'user-icon'
           .card-item__comments
             .card-item__comments-counts 0
             .card-item__comments-icon

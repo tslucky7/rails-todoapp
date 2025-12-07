@@ -7,6 +7,7 @@ class TasksController < ApplicationController
 
   def show
     @task = @board.tasks.find(params[:id])
+    @comments = @task.comments
   end
 
   def new

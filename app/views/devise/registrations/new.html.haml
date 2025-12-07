@@ -15,5 +15,9 @@
         = f.label :password_confirmation
         %br/
         = f.password_field :password_confirmation, autocomplete: "new-password"
+      .field
+        = f.label :icon
+        %br/
+        = f.file_field :icon, accept: "image/*"
       .actions
         = f.submit "Submit", class: "submit-btn"
